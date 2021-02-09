@@ -18,16 +18,19 @@ public class Main {
                 .filter(c->c.getArea()>c.getPerimeter())
                 .collect(Collectors.toList());
         System.out.println(prostokaty_a);
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
         List<Rectangle> prostokaty_b = prostokaty.stream()
                 .sorted(Comparator.comparingDouble(Rectangle::getPerimeter))
                 .collect(Collectors.toList());
         System.out.println(prostokaty_b);
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
         OptionalDouble prostokaty_c = prostokaty.stream()
                 .mapToDouble(Rectangle::getPerimeter)
                 .average();
         System.out.println(prostokaty_c);
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
         double sredniapola = prostokaty.stream()
                 .mapToDouble(rectangle -> rectangle.getArea())
@@ -37,15 +40,16 @@ public class Main {
                 .sorted(Comparator.comparingDouble(Rectangle::getArea).reversed())
                 .collect(Collectors.toList());
         System.out.println(prostokaty_d);
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
         double prostokaty_e = prostokaty.stream()
                 .mapToDouble(Rectangle::getArea)
                 .sum();
         System.out.println(prostokaty_e);
+        System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&");
 
-        Map<Rectangle,Double> map = prostokaty.stream()
+        Map<Rectangle,Double> prostokat_map = prostokaty.stream()
                 .collect(Collectors.toMap(rectangle -> rectangle, rectangle -> rectangle.getArea()));
-
-        System.out.println(map);
+        System.out.println(prostokat_map);
     }
 }
